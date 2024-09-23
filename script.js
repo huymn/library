@@ -5,14 +5,6 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-Book.prototype.info = function () {
-  if (this.read) {
-    return `${this.title} by ${this.author}, ${this.pages} pages, has read.`;
-  }
-
-  return `${this.title} by ${this.author}, ${this.pages} pages, not yet read.`;
-};
-
 let myLibrary = [];
 
 const addBookButton = document.querySelector(".add-book-btn");
@@ -23,12 +15,36 @@ const titleInput = document.querySelector("#title");
 const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
 const hasReadCheckbox = document.querySelector("#read");
+const booksContainer = document.querySelector(".books-container");
 
 function addBookToLibrary(book) {
   myLibrary = [...myLibrary, book];
 }
 
-function display(library) {}
+function display() {
+  booksContainer.replaceChildren();
+  const newBookCard = document.createElement("div");
+  newBookCard.classList.add("book-card");
+
+  myLibrary.forEach((book) => {
+    const titleHeader = document.createElement("h2");
+    const authorParagraph = document.createElement("p");
+    const pagesParagraph = document.createElement("p");
+    const hasReadParagraph = document.createElement("p");
+
+    titleHeader.innerText = book.title;
+    authorParagraph.innerText = `Author: ${book.author}`;
+    pagesParagraph.innerText = `No. of Pages: ${book.pages}`;
+    hasReadParagraph.innerText = book.read ? "Has read" : "Not yet read";
+
+    newBookCard.appendChild(titleHeader);
+    newBookCard.appendChild(authorParagraph);
+    newBookCard.appendChild(pagesParagraph);
+    newBookCard.appendChild(hasReadParagraph);
+
+    booksContainer.appendChild(newBookCard);
+  });
+}
 
 function resetInputs() {
   titleInput.value = "";
@@ -52,8 +68,9 @@ submitButton.addEventListener("click", (e) => {
     hasRead
   );
   addBookToLibrary(newBook);
-
   resetInputs();
+  console.log(myLibrary);
+  display();
 });
 
 cancelButton.addEventListener("click", () => {
