@@ -22,28 +22,27 @@ function addBookToLibrary(book) {
 }
 
 function display() {
-  booksContainer.replaceChildren();
+  const book = myLibrary[myLibrary.length - 1];
+
   const newBookCard = document.createElement("div");
   newBookCard.classList.add("book-card");
 
-  myLibrary.forEach((book) => {
-    const titleHeader = document.createElement("h2");
-    const authorParagraph = document.createElement("p");
-    const pagesParagraph = document.createElement("p");
-    const hasReadParagraph = document.createElement("p");
+  const titleHeader = document.createElement("h2");
+  const authorParagraph = document.createElement("p");
+  const pagesParagraph = document.createElement("p");
+  const hasReadParagraph = document.createElement("p");
 
-    titleHeader.innerText = book.title;
-    authorParagraph.innerText = `Author: ${book.author}`;
-    pagesParagraph.innerText = `No. of Pages: ${book.pages}`;
-    hasReadParagraph.innerText = book.read ? "Has read" : "Not yet read";
+  titleHeader.innerText = book.title;
+  authorParagraph.innerText = `Author: ${book.author}`;
+  pagesParagraph.innerText = `No. of Pages: ${book.pages}`;
+  hasReadParagraph.innerText = book.read ? "Has read" : "Not yet read";
 
-    newBookCard.appendChild(titleHeader);
-    newBookCard.appendChild(authorParagraph);
-    newBookCard.appendChild(pagesParagraph);
-    newBookCard.appendChild(hasReadParagraph);
+  newBookCard.appendChild(titleHeader);
+  newBookCard.appendChild(authorParagraph);
+  newBookCard.appendChild(pagesParagraph);
+  newBookCard.appendChild(hasReadParagraph);
 
-    booksContainer.appendChild(newBookCard);
-  });
+  booksContainer.appendChild(newBookCard);
 }
 
 function resetInputs() {
