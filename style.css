@@ -42,7 +42,7 @@
   width: 500px;
   position: absolute;
   background-color: #53758c;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
