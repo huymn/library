@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  background-color: lightgray;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.books-container {
+  height: 700px;
+  width: 800px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 5px 5px 5px lightslategrey;
+  border-radius: 10px;
+}
+
+.add-book-btn {
+  padding: 20px;
+  background-color: #0797f7;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  box-shadow: 5px 5px 5px lightslategray;
+  align-self: flex-end;
+}
+
+.modal {
+  height: 500px;
+  width: 500px;
+  position: absolute;
+}
